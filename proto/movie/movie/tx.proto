@@ -1,7 +1,48 @@
 syntax = "proto3";
+
 package movie.movie;
+
+import "movie/movie/movie.proto";
 
 option go_package = "movie/x/movie/types";
 
 // Msg defines the Msg service.
-service Msg {}
+service Msg {
+  rpc CreateMovie (MsgCreateMovie) returns (MsgCreateMovieResponse);
+  rpc UpdateMovie (MsgUpdateMovie) returns (MsgUpdateMovieResponse);
+  rpc DeleteMovie (MsgDeleteMovie) returns (MsgDeleteMovieResponse);
+}
+message MsgCreateMovie {
+  string creator     = 1;
+  string title       = 2;
+  string plot        = 3;
+  uint64 year        = 4;
+  string genre       = 5;
+  string language    = 6;
+  bool   isPublished = 7;
+}
+
+message MsgCreateMovieResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateMovie {
+  string creator     = 1;
+  uint64 id          = 2;
+  string title       = 3;
+  string plot        = 4;
+  uint64 year        = 5;
+  string genre       = 6;
+  string language    = 7;
+  bool   isPublished = 8;
+}
+
+message MsgUpdateMovieResponse {}
+
+message MsgDeleteMovie {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgDeleteMovieResponse {}
+
