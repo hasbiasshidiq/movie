@@ -387,6 +387,318 @@ func (m *MsgDeleteMovieResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgDeleteMovieResponse proto.InternalMessageInfo
 
+type MsgCreateReview struct {
+	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	MovieId uint64 `protobuf:"varint,2,opt,name=movieId,proto3" json:"movieId,omitempty"`
+	Star    uint64 `protobuf:"varint,3,opt,name=star,proto3" json:"star,omitempty"`
+	Comment string `protobuf:"bytes,4,opt,name=comment,proto3" json:"comment,omitempty"`
+}
+
+func (m *MsgCreateReview) Reset()         { *m = MsgCreateReview{} }
+func (m *MsgCreateReview) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateReview) ProtoMessage()    {}
+func (*MsgCreateReview) Descriptor() ([]byte, []int) {
+	return fileDescriptor_25f8961a3874d90f, []int{6}
+}
+func (m *MsgCreateReview) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreateReview) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreateReview.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreateReview) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateReview.Merge(m, src)
+}
+func (m *MsgCreateReview) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreateReview) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateReview.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreateReview proto.InternalMessageInfo
+
+func (m *MsgCreateReview) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgCreateReview) GetMovieId() uint64 {
+	if m != nil {
+		return m.MovieId
+	}
+	return 0
+}
+
+func (m *MsgCreateReview) GetStar() uint64 {
+	if m != nil {
+		return m.Star
+	}
+	return 0
+}
+
+func (m *MsgCreateReview) GetComment() string {
+	if m != nil {
+		return m.Comment
+	}
+	return ""
+}
+
+type MsgCreateReviewResponse struct {
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgCreateReviewResponse) Reset()         { *m = MsgCreateReviewResponse{} }
+func (m *MsgCreateReviewResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateReviewResponse) ProtoMessage()    {}
+func (*MsgCreateReviewResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_25f8961a3874d90f, []int{7}
+}
+func (m *MsgCreateReviewResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreateReviewResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreateReviewResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreateReviewResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateReviewResponse.Merge(m, src)
+}
+func (m *MsgCreateReviewResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreateReviewResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateReviewResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreateReviewResponse proto.InternalMessageInfo
+
+func (m *MsgCreateReviewResponse) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type MsgUpdateReview struct {
+	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Id      uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+	MovieId uint64 `protobuf:"varint,3,opt,name=movieId,proto3" json:"movieId,omitempty"`
+	Star    uint64 `protobuf:"varint,4,opt,name=star,proto3" json:"star,omitempty"`
+	Comment string `protobuf:"bytes,5,opt,name=comment,proto3" json:"comment,omitempty"`
+}
+
+func (m *MsgUpdateReview) Reset()         { *m = MsgUpdateReview{} }
+func (m *MsgUpdateReview) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateReview) ProtoMessage()    {}
+func (*MsgUpdateReview) Descriptor() ([]byte, []int) {
+	return fileDescriptor_25f8961a3874d90f, []int{8}
+}
+func (m *MsgUpdateReview) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUpdateReview) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUpdateReview.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUpdateReview) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateReview.Merge(m, src)
+}
+func (m *MsgUpdateReview) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUpdateReview) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateReview.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUpdateReview proto.InternalMessageInfo
+
+func (m *MsgUpdateReview) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgUpdateReview) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *MsgUpdateReview) GetMovieId() uint64 {
+	if m != nil {
+		return m.MovieId
+	}
+	return 0
+}
+
+func (m *MsgUpdateReview) GetStar() uint64 {
+	if m != nil {
+		return m.Star
+	}
+	return 0
+}
+
+func (m *MsgUpdateReview) GetComment() string {
+	if m != nil {
+		return m.Comment
+	}
+	return ""
+}
+
+type MsgUpdateReviewResponse struct {
+}
+
+func (m *MsgUpdateReviewResponse) Reset()         { *m = MsgUpdateReviewResponse{} }
+func (m *MsgUpdateReviewResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateReviewResponse) ProtoMessage()    {}
+func (*MsgUpdateReviewResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_25f8961a3874d90f, []int{9}
+}
+func (m *MsgUpdateReviewResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUpdateReviewResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUpdateReviewResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUpdateReviewResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateReviewResponse.Merge(m, src)
+}
+func (m *MsgUpdateReviewResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUpdateReviewResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateReviewResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUpdateReviewResponse proto.InternalMessageInfo
+
+type MsgDeleteReview struct {
+	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Id      uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgDeleteReview) Reset()         { *m = MsgDeleteReview{} }
+func (m *MsgDeleteReview) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteReview) ProtoMessage()    {}
+func (*MsgDeleteReview) Descriptor() ([]byte, []int) {
+	return fileDescriptor_25f8961a3874d90f, []int{10}
+}
+func (m *MsgDeleteReview) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeleteReview) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeleteReview.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeleteReview) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteReview.Merge(m, src)
+}
+func (m *MsgDeleteReview) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeleteReview) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteReview.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeleteReview proto.InternalMessageInfo
+
+func (m *MsgDeleteReview) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgDeleteReview) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type MsgDeleteReviewResponse struct {
+}
+
+func (m *MsgDeleteReviewResponse) Reset()         { *m = MsgDeleteReviewResponse{} }
+func (m *MsgDeleteReviewResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteReviewResponse) ProtoMessage()    {}
+func (*MsgDeleteReviewResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_25f8961a3874d90f, []int{11}
+}
+func (m *MsgDeleteReviewResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeleteReviewResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeleteReviewResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeleteReviewResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteReviewResponse.Merge(m, src)
+}
+func (m *MsgDeleteReviewResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeleteReviewResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteReviewResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeleteReviewResponse proto.InternalMessageInfo
+
 func init() {
 	proto.RegisterType((*MsgCreateMovie)(nil), "movie.movie.MsgCreateMovie")
 	proto.RegisterType((*MsgCreateMovieResponse)(nil), "movie.movie.MsgCreateMovieResponse")
@@ -394,36 +706,51 @@ func init() {
 	proto.RegisterType((*MsgUpdateMovieResponse)(nil), "movie.movie.MsgUpdateMovieResponse")
 	proto.RegisterType((*MsgDeleteMovie)(nil), "movie.movie.MsgDeleteMovie")
 	proto.RegisterType((*MsgDeleteMovieResponse)(nil), "movie.movie.MsgDeleteMovieResponse")
+	proto.RegisterType((*MsgCreateReview)(nil), "movie.movie.MsgCreateReview")
+	proto.RegisterType((*MsgCreateReviewResponse)(nil), "movie.movie.MsgCreateReviewResponse")
+	proto.RegisterType((*MsgUpdateReview)(nil), "movie.movie.MsgUpdateReview")
+	proto.RegisterType((*MsgUpdateReviewResponse)(nil), "movie.movie.MsgUpdateReviewResponse")
+	proto.RegisterType((*MsgDeleteReview)(nil), "movie.movie.MsgDeleteReview")
+	proto.RegisterType((*MsgDeleteReviewResponse)(nil), "movie.movie.MsgDeleteReviewResponse")
 }
 
 func init() { proto.RegisterFile("movie/movie/tx.proto", fileDescriptor_25f8961a3874d90f) }
 
 var fileDescriptor_25f8961a3874d90f = []byte{
-	// 372 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x93, 0xcf, 0x4a, 0xc3, 0x40,
-	0x10, 0xc6, 0xbb, 0x69, 0xfa, 0xc7, 0x0d, 0xf4, 0xb0, 0x16, 0x5d, 0x2a, 0x84, 0x10, 0x2f, 0xb9,
-	0x18, 0x41, 0x6f, 0x1e, 0xd5, 0x6b, 0xa9, 0x04, 0xbc, 0x78, 0x4b, 0xcd, 0x10, 0x03, 0xb1, 0x09,
-	0xd9, 0x54, 0xda, 0xb7, 0xf0, 0x81, 0x7c, 0x00, 0x0f, 0x1e, 0x7a, 0xf4, 0x28, 0xcd, 0x4b, 0x78,
-	0x94, 0xcc, 0x9a, 0xba, 0x25, 0xb1, 0xe8, 0x25, 0xec, 0x37, 0xdf, 0xce, 0x47, 0x7e, 0xcc, 0x0e,
-	0x1d, 0x3e, 0x26, 0x4f, 0x11, 0x9c, 0xca, 0x6f, 0xbe, 0x70, 0xd3, 0x2c, 0xc9, 0x13, 0x66, 0xa0,
-	0x76, 0xf1, 0x3b, 0x3a, 0x54, 0xaf, 0x48, 0x03, 0x6f, 0xd9, 0x2f, 0x84, 0x0e, 0xc6, 0x22, 0xbc,
-	0xca, 0xc0, 0xcf, 0x61, 0x5c, 0x1a, 0x8c, 0xd3, 0xde, 0x7d, 0x29, 0x93, 0x8c, 0x13, 0x8b, 0x38,
-	0x7b, 0x5e, 0x25, 0xd9, 0x90, 0x76, 0xf2, 0x28, 0x8f, 0x81, 0x6b, 0x58, 0x97, 0x82, 0x31, 0xaa,
-	0xa7, 0x71, 0x92, 0xf3, 0x36, 0x16, 0xf1, 0x5c, 0xd6, 0x96, 0xe0, 0x67, 0x5c, 0xb7, 0x88, 0xa3,
-	0x7b, 0x78, 0x2e, 0xbb, 0x43, 0x98, 0x65, 0xc0, 0x3b, 0xb2, 0x1b, 0x05, 0x1b, 0xd1, 0x7e, 0xec,
-	0xcf, 0xc2, 0xb9, 0x1f, 0x02, 0xef, 0xa2, 0xb1, 0xd1, 0xcc, 0xa2, 0x46, 0x24, 0x6e, 0xe6, 0xd3,
-	0x38, 0x12, 0x0f, 0x10, 0xf0, 0x9e, 0x45, 0x9c, 0xbe, 0xa7, 0x96, 0x6c, 0x87, 0x1e, 0x6c, 0xff,
-	0xbd, 0x07, 0x22, 0x4d, 0x66, 0x02, 0xd8, 0x80, 0x6a, 0x51, 0x80, 0x00, 0xba, 0xa7, 0x45, 0x81,
-	0xfd, 0x26, 0x41, 0x6f, 0xd3, 0xe0, 0x0f, 0xa0, 0xb2, 0x59, 0xab, 0x9a, 0x7f, 0xc0, 0xdb, 0x4d,
-	0xe0, 0x7a, 0x03, 0x78, 0xa7, 0x09, 0xbc, 0xfb, 0x1b, 0x78, 0x6f, 0x37, 0x78, 0xbf, 0x0e, 0xce,
-	0x11, 0x5c, 0xa1, 0xa9, 0xc0, 0xed, 0x0b, 0xe4, 0xbc, 0x86, 0x18, 0xfe, 0xcd, 0xf9, 0x9d, 0xaa,
-	0xf4, 0x56, 0xa9, 0x67, 0x9f, 0x84, 0xb6, 0xc7, 0x22, 0x64, 0x13, 0x6a, 0xa8, 0x6f, 0xe5, 0xc8,
-	0x55, 0x5e, 0x99, 0xbb, 0x3d, 0x8a, 0xd1, 0xf1, 0x0e, 0x73, 0x33, 0xa7, 0x09, 0x35, 0xd4, 0x99,
-	0xd4, 0x02, 0x15, 0xb3, 0x1e, 0xd8, 0xc0, 0x5f, 0x06, 0xaa, 0xf0, 0xb5, 0x40, 0xc5, 0xac, 0x07,
-	0x36, 0xa0, 0x5f, 0x9e, 0xbc, 0xae, 0x4d, 0xb2, 0x5a, 0x9b, 0xe4, 0x63, 0x6d, 0x92, 0xe7, 0xc2,
-	0x6c, 0xad, 0x0a, 0xb3, 0xf5, 0x5e, 0x98, 0xad, 0xbb, 0x7d, 0xb9, 0x4f, 0x8b, 0x6a, 0xf5, 0x96,
-	0x29, 0x88, 0x69, 0x17, 0x17, 0xeb, 0xfc, 0x2b, 0x00, 0x00, 0xff, 0xff, 0x68, 0xaa, 0xdb, 0x9a,
-	0x96, 0x03, 0x00, 0x00,
+	// 519 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x55, 0xbd, 0x8e, 0xd3, 0x40,
+	0x10, 0xce, 0xc6, 0xce, 0x0f, 0x13, 0x74, 0x48, 0xcb, 0x89, 0x5b, 0x4c, 0x64, 0x45, 0x86, 0x22,
+	0x14, 0x04, 0x09, 0x3a, 0xe8, 0x80, 0x86, 0x22, 0x3a, 0x64, 0x89, 0x86, 0xce, 0x47, 0x46, 0xc6,
+	0x92, 0x13, 0x5b, 0x5e, 0xdf, 0x71, 0x57, 0xf3, 0x02, 0x3c, 0x10, 0x0f, 0x40, 0x41, 0x71, 0x25,
+	0x25, 0x4a, 0x5e, 0x81, 0x07, 0x40, 0x9e, 0xbd, 0x35, 0xeb, 0xf3, 0xc6, 0x70, 0x8d, 0xb5, 0xb3,
+	0xdf, 0xce, 0x97, 0xef, 0x9b, 0x99, 0xdd, 0xc0, 0xe1, 0x3a, 0x3b, 0x4b, 0xf0, 0xa9, 0xfa, 0x96,
+	0xe7, 0x8b, 0xbc, 0xc8, 0xca, 0x8c, 0x4f, 0x28, 0x5e, 0xd0, 0xd7, 0x3b, 0x32, 0x8f, 0x28, 0x80,
+	0x4e, 0x79, 0xc2, 0x04, 0x0a, 0x3c, 0x4b, 0xf0, 0xb3, 0x42, 0x82, 0x6f, 0x0c, 0x0e, 0x96, 0x32,
+	0x7e, 0x5d, 0x60, 0x54, 0xe2, 0xb2, 0xc2, 0xb9, 0x80, 0xd1, 0xc7, 0x2a, 0xcc, 0x0a, 0xc1, 0x66,
+	0x6c, 0x7e, 0x2b, 0xd4, 0x21, 0x3f, 0x84, 0x41, 0x99, 0x94, 0x29, 0x8a, 0x3e, 0xed, 0xab, 0x80,
+	0x73, 0x70, 0xf3, 0x34, 0x2b, 0x85, 0x43, 0x9b, 0xb4, 0xae, 0xf6, 0x2e, 0x30, 0x2a, 0x84, 0x3b,
+	0x63, 0x73, 0x37, 0xa4, 0x75, 0x95, 0x1d, 0xe3, 0xa6, 0x40, 0x31, 0x50, 0xd9, 0x14, 0x70, 0x0f,
+	0xc6, 0x69, 0xb4, 0x89, 0x4f, 0xa3, 0x18, 0xc5, 0x90, 0x80, 0x3a, 0xe6, 0x33, 0x98, 0x24, 0xf2,
+	0xdd, 0xe9, 0x49, 0x9a, 0xc8, 0x4f, 0xb8, 0x12, 0xa3, 0x19, 0x9b, 0x8f, 0x43, 0x73, 0x2b, 0x98,
+	0xc3, 0xbd, 0xa6, 0xfa, 0x10, 0x65, 0x9e, 0x6d, 0x24, 0xf2, 0x03, 0xe8, 0x27, 0x2b, 0x32, 0xe0,
+	0x86, 0xfd, 0x64, 0x15, 0xfc, 0x50, 0x46, 0xdf, 0xe7, 0xab, 0xff, 0x30, 0xaa, 0x92, 0xfb, 0x3a,
+	0xf9, 0xaf, 0x71, 0xc7, 0x66, 0xdc, 0xb5, 0x18, 0x1f, 0xd8, 0x8c, 0x0f, 0xf7, 0x19, 0x1f, 0x75,
+	0x1b, 0x1f, 0xb7, 0x8d, 0x0b, 0x32, 0x6e, 0xb8, 0xd1, 0xc6, 0x83, 0x17, 0xe4, 0xf3, 0x0d, 0xa6,
+	0x78, 0x63, 0x9f, 0x57, 0xac, 0x46, 0x6e, 0xcd, 0x2a, 0xe1, 0x4e, 0x5d, 0xe8, 0x90, 0x06, 0xa8,
+	0x83, 0x56, 0xc0, 0x88, 0x46, 0xed, 0xad, 0xe6, 0xd6, 0x61, 0x55, 0x1e, 0x59, 0x46, 0x05, 0xd5,
+	0xd1, 0x0d, 0x69, 0x4d, 0x3c, 0xd9, 0x7a, 0x8d, 0x1b, 0x5d, 0x49, 0x1d, 0x06, 0x8f, 0xe1, 0xe8,
+	0xda, 0x8f, 0xee, 0x6d, 0xef, 0x17, 0x46, 0x02, 0x55, 0x41, 0xfe, 0x29, 0xf0, 0x7a, 0x7f, 0x0d,
+	0xc1, 0x8e, 0x5d, 0xb0, 0x6b, 0x17, 0x3c, 0x68, 0x0a, 0xbe, 0x4f, 0x82, 0x4d, 0x11, 0x75, 0x01,
+	0x5f, 0x92, 0x3e, 0x55, 0xda, 0x9b, 0xea, 0xbb, 0xe2, 0x35, 0x93, 0x35, 0xef, 0xb3, 0xdf, 0x0e,
+	0x38, 0x4b, 0x19, 0xf3, 0x63, 0x98, 0x98, 0x97, 0xf8, 0xc1, 0xc2, 0x78, 0x18, 0x16, 0xcd, 0x3b,
+	0xe2, 0x3d, 0xec, 0x00, 0xeb, 0x0a, 0x1f, 0xc3, 0xc4, 0xbc, 0x2c, 0x2d, 0x42, 0x03, 0x6c, 0x13,
+	0x5a, 0x06, 0xb3, 0x22, 0x34, 0xa7, 0xb2, 0x45, 0x68, 0x80, 0x6d, 0x42, 0xcb, 0x4c, 0xf2, 0x10,
+	0x6e, 0x37, 0x06, 0x72, 0x6a, 0xb7, 0xa5, 0x50, 0xef, 0x51, 0x17, 0x6a, 0x72, 0x36, 0x66, 0x68,
+	0x6a, 0x77, 0xb6, 0x8f, 0xd3, 0xd6, 0xfa, 0x8a, 0xb3, 0xd1, 0xf7, 0xa9, 0xdd, 0xdc, 0x3e, 0x4e,
+	0x5b, 0xdb, 0x5f, 0x3d, 0xf9, 0xbe, 0xf5, 0xd9, 0xe5, 0xd6, 0x67, 0xbf, 0xb6, 0x3e, 0xfb, 0xba,
+	0xf3, 0x7b, 0x97, 0x3b, 0xbf, 0xf7, 0x73, 0xe7, 0xf7, 0x3e, 0xdc, 0x55, 0xaf, 0xfc, 0xb9, 0xfe,
+	0xa7, 0xb8, 0xc8, 0x51, 0x9e, 0x0c, 0xe9, 0xb5, 0x7f, 0xfe, 0x27, 0x00, 0x00, 0xff, 0xff, 0x75,
+	0x90, 0x9f, 0x29, 0x45, 0x06, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -441,6 +768,9 @@ type MsgClient interface {
 	CreateMovie(ctx context.Context, in *MsgCreateMovie, opts ...grpc.CallOption) (*MsgCreateMovieResponse, error)
 	UpdateMovie(ctx context.Context, in *MsgUpdateMovie, opts ...grpc.CallOption) (*MsgUpdateMovieResponse, error)
 	DeleteMovie(ctx context.Context, in *MsgDeleteMovie, opts ...grpc.CallOption) (*MsgDeleteMovieResponse, error)
+	CreateReview(ctx context.Context, in *MsgCreateReview, opts ...grpc.CallOption) (*MsgCreateReviewResponse, error)
+	UpdateReview(ctx context.Context, in *MsgUpdateReview, opts ...grpc.CallOption) (*MsgUpdateReviewResponse, error)
+	DeleteReview(ctx context.Context, in *MsgDeleteReview, opts ...grpc.CallOption) (*MsgDeleteReviewResponse, error)
 }
 
 type msgClient struct {
@@ -478,11 +808,41 @@ func (c *msgClient) DeleteMovie(ctx context.Context, in *MsgDeleteMovie, opts ..
 	return out, nil
 }
 
+func (c *msgClient) CreateReview(ctx context.Context, in *MsgCreateReview, opts ...grpc.CallOption) (*MsgCreateReviewResponse, error) {
+	out := new(MsgCreateReviewResponse)
+	err := c.cc.Invoke(ctx, "/movie.movie.Msg/CreateReview", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UpdateReview(ctx context.Context, in *MsgUpdateReview, opts ...grpc.CallOption) (*MsgUpdateReviewResponse, error) {
+	out := new(MsgUpdateReviewResponse)
+	err := c.cc.Invoke(ctx, "/movie.movie.Msg/UpdateReview", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) DeleteReview(ctx context.Context, in *MsgDeleteReview, opts ...grpc.CallOption) (*MsgDeleteReviewResponse, error) {
+	out := new(MsgDeleteReviewResponse)
+	err := c.cc.Invoke(ctx, "/movie.movie.Msg/DeleteReview", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	CreateMovie(context.Context, *MsgCreateMovie) (*MsgCreateMovieResponse, error)
 	UpdateMovie(context.Context, *MsgUpdateMovie) (*MsgUpdateMovieResponse, error)
 	DeleteMovie(context.Context, *MsgDeleteMovie) (*MsgDeleteMovieResponse, error)
+	CreateReview(context.Context, *MsgCreateReview) (*MsgCreateReviewResponse, error)
+	UpdateReview(context.Context, *MsgUpdateReview) (*MsgUpdateReviewResponse, error)
+	DeleteReview(context.Context, *MsgDeleteReview) (*MsgDeleteReviewResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -497,6 +857,15 @@ func (*UnimplementedMsgServer) UpdateMovie(ctx context.Context, req *MsgUpdateMo
 }
 func (*UnimplementedMsgServer) DeleteMovie(ctx context.Context, req *MsgDeleteMovie) (*MsgDeleteMovieResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteMovie not implemented")
+}
+func (*UnimplementedMsgServer) CreateReview(ctx context.Context, req *MsgCreateReview) (*MsgCreateReviewResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateReview not implemented")
+}
+func (*UnimplementedMsgServer) UpdateReview(ctx context.Context, req *MsgUpdateReview) (*MsgUpdateReviewResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateReview not implemented")
+}
+func (*UnimplementedMsgServer) DeleteReview(ctx context.Context, req *MsgDeleteReview) (*MsgDeleteReviewResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteReview not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -557,6 +926,60 @@ func _Msg_DeleteMovie_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_CreateReview_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreateReview)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).CreateReview(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/movie.movie.Msg/CreateReview",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).CreateReview(ctx, req.(*MsgCreateReview))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UpdateReview_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateReview)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UpdateReview(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/movie.movie.Msg/UpdateReview",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UpdateReview(ctx, req.(*MsgUpdateReview))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_DeleteReview_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgDeleteReview)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).DeleteReview(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/movie.movie.Msg/DeleteReview",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).DeleteReview(ctx, req.(*MsgDeleteReview))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "movie.movie.Msg",
 	HandlerType: (*MsgServer)(nil),
@@ -572,6 +995,18 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteMovie",
 			Handler:    _Msg_DeleteMovie_Handler,
+		},
+		{
+			MethodName: "CreateReview",
+			Handler:    _Msg_CreateReview_Handler,
+		},
+		{
+			MethodName: "UpdateReview",
+			Handler:    _Msg_UpdateReview_Handler,
+		},
+		{
+			MethodName: "DeleteReview",
+			Handler:    _Msg_DeleteReview_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -838,6 +1273,214 @@ func (m *MsgDeleteMovieResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	return len(dAtA) - i, nil
 }
 
+func (m *MsgCreateReview) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateReview) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateReview) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Comment) > 0 {
+		i -= len(m.Comment)
+		copy(dAtA[i:], m.Comment)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Comment)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if m.Star != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Star))
+		i--
+		dAtA[i] = 0x18
+	}
+	if m.MovieId != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.MovieId))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCreateReviewResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateReviewResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateReviewResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateReview) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateReview) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateReview) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Comment) > 0 {
+		i -= len(m.Comment)
+		copy(dAtA[i:], m.Comment)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Comment)))
+		i--
+		dAtA[i] = 0x2a
+	}
+	if m.Star != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Star))
+		i--
+		dAtA[i] = 0x20
+	}
+	if m.MovieId != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.MovieId))
+		i--
+		dAtA[i] = 0x18
+	}
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateReviewResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateReviewResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateReviewResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteReview) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteReview) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteReview) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteReviewResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteReviewResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteReviewResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTx(v)
 	base := offset
@@ -960,6 +1603,101 @@ func (m *MsgDeleteMovie) Size() (n int) {
 }
 
 func (m *MsgDeleteMovieResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgCreateReview) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.MovieId != 0 {
+		n += 1 + sovTx(uint64(m.MovieId))
+	}
+	if m.Star != 0 {
+		n += 1 + sovTx(uint64(m.Star))
+	}
+	l = len(m.Comment)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgCreateReviewResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *MsgUpdateReview) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	if m.MovieId != 0 {
+		n += 1 + sovTx(uint64(m.MovieId))
+	}
+	if m.Star != 0 {
+		n += 1 + sovTx(uint64(m.Star))
+	}
+	l = len(m.Comment)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgUpdateReviewResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgDeleteReview) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *MsgDeleteReviewResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1738,6 +2476,599 @@ func (m *MsgDeleteMovieResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgDeleteMovieResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateReview) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateReview: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateReview: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MovieId", wireType)
+			}
+			m.MovieId = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.MovieId |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Star", wireType)
+			}
+			m.Star = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Star |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Comment", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Comment = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateReviewResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateReviewResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateReviewResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateReview) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateReview: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateReview: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MovieId", wireType)
+			}
+			m.MovieId = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.MovieId |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Star", wireType)
+			}
+			m.Star = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Star |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Comment", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Comment = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateReviewResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateReviewResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateReviewResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteReview) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteReview: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteReview: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteReviewResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteReviewResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteReviewResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:

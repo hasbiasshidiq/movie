@@ -3,14 +3,18 @@ syntax = "proto3";
 package movie.movie;
 
 import "movie/movie/movie.proto";
+import "movie/movie/review.proto";
 
 option go_package = "movie/x/movie/types";
 
 // Msg defines the Msg service.
 service Msg {
-  rpc CreateMovie (MsgCreateMovie) returns (MsgCreateMovieResponse);
-  rpc UpdateMovie (MsgUpdateMovie) returns (MsgUpdateMovieResponse);
-  rpc DeleteMovie (MsgDeleteMovie) returns (MsgDeleteMovieResponse);
+  rpc CreateMovie  (MsgCreateMovie ) returns (MsgCreateMovieResponse );
+  rpc UpdateMovie  (MsgUpdateMovie ) returns (MsgUpdateMovieResponse );
+  rpc DeleteMovie  (MsgDeleteMovie ) returns (MsgDeleteMovieResponse );
+  rpc CreateReview (MsgCreateReview) returns (MsgCreateReviewResponse);
+  rpc UpdateReview (MsgUpdateReview) returns (MsgUpdateReviewResponse);
+  rpc DeleteReview (MsgDeleteReview) returns (MsgDeleteReviewResponse);
 }
 message MsgCreateMovie {
   string creator     = 1;
@@ -45,4 +49,32 @@ message MsgDeleteMovie {
 }
 
 message MsgDeleteMovieResponse {}
+
+message MsgCreateReview {
+  string creator = 1;
+  uint64 movieId = 2;
+  uint64 star    = 3;
+  string comment = 4;
+}
+
+message MsgCreateReviewResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateReview {
+  string creator = 1;
+  uint64 id      = 2;
+  uint64 movieId = 3;
+  uint64 star    = 4;
+  string comment = 5;
+}
+
+message MsgUpdateReviewResponse {}
+
+message MsgDeleteReview {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgDeleteReviewResponse {}
 
