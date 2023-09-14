@@ -40,6 +40,14 @@ func TestGenesisState_Validate(t *testing.T) {
 					},
 				},
 				ReviewCount: 2,
+				TittleAllocationList: []types.TittleAllocation{
+					{
+						MovieTitle: "0",
+					},
+					{
+						MovieTitle: "1",
+					},
+				},
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
@@ -93,6 +101,20 @@ func TestGenesisState_Validate(t *testing.T) {
 					},
 				},
 				ReviewCount: 0,
+			},
+			valid: false,
+		},
+		{
+			desc: "duplicated tittleAllocation",
+			genState: &types.GenesisState{
+				TittleAllocationList: []types.TittleAllocation{
+					{
+						MovieTitle: "0",
+					},
+					{
+						MovieTitle: "0",
+					},
+				},
 			},
 			valid: false,
 		},

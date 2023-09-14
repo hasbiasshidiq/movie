@@ -481,6 +481,190 @@ func (m *QueryAllReviewResponse) GetPagination() *query.PageResponse {
 	return nil
 }
 
+type QueryGetTittleAllocationRequest struct {
+	MovieTitle string `protobuf:"bytes,1,opt,name=movieTitle,proto3" json:"movieTitle,omitempty"`
+}
+
+func (m *QueryGetTittleAllocationRequest) Reset()         { *m = QueryGetTittleAllocationRequest{} }
+func (m *QueryGetTittleAllocationRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetTittleAllocationRequest) ProtoMessage()    {}
+func (*QueryGetTittleAllocationRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6a692c7f6b793183, []int{10}
+}
+func (m *QueryGetTittleAllocationRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetTittleAllocationRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetTittleAllocationRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetTittleAllocationRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetTittleAllocationRequest.Merge(m, src)
+}
+func (m *QueryGetTittleAllocationRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetTittleAllocationRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetTittleAllocationRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetTittleAllocationRequest proto.InternalMessageInfo
+
+func (m *QueryGetTittleAllocationRequest) GetMovieTitle() string {
+	if m != nil {
+		return m.MovieTitle
+	}
+	return ""
+}
+
+type QueryGetTittleAllocationResponse struct {
+	TittleAllocation TittleAllocation `protobuf:"bytes,1,opt,name=tittleAllocation,proto3" json:"tittleAllocation"`
+}
+
+func (m *QueryGetTittleAllocationResponse) Reset()         { *m = QueryGetTittleAllocationResponse{} }
+func (m *QueryGetTittleAllocationResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetTittleAllocationResponse) ProtoMessage()    {}
+func (*QueryGetTittleAllocationResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6a692c7f6b793183, []int{11}
+}
+func (m *QueryGetTittleAllocationResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetTittleAllocationResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetTittleAllocationResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetTittleAllocationResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetTittleAllocationResponse.Merge(m, src)
+}
+func (m *QueryGetTittleAllocationResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetTittleAllocationResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetTittleAllocationResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetTittleAllocationResponse proto.InternalMessageInfo
+
+func (m *QueryGetTittleAllocationResponse) GetTittleAllocation() TittleAllocation {
+	if m != nil {
+		return m.TittleAllocation
+	}
+	return TittleAllocation{}
+}
+
+type QueryAllTittleAllocationRequest struct {
+	Pagination *query.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllTittleAllocationRequest) Reset()         { *m = QueryAllTittleAllocationRequest{} }
+func (m *QueryAllTittleAllocationRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryAllTittleAllocationRequest) ProtoMessage()    {}
+func (*QueryAllTittleAllocationRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6a692c7f6b793183, []int{12}
+}
+func (m *QueryAllTittleAllocationRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllTittleAllocationRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllTittleAllocationRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllTittleAllocationRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllTittleAllocationRequest.Merge(m, src)
+}
+func (m *QueryAllTittleAllocationRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllTittleAllocationRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllTittleAllocationRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllTittleAllocationRequest proto.InternalMessageInfo
+
+func (m *QueryAllTittleAllocationRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryAllTittleAllocationResponse struct {
+	TittleAllocation []TittleAllocation  `protobuf:"bytes,1,rep,name=tittleAllocation,proto3" json:"tittleAllocation"`
+	Pagination       *query.PageResponse `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllTittleAllocationResponse) Reset()         { *m = QueryAllTittleAllocationResponse{} }
+func (m *QueryAllTittleAllocationResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryAllTittleAllocationResponse) ProtoMessage()    {}
+func (*QueryAllTittleAllocationResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6a692c7f6b793183, []int{13}
+}
+func (m *QueryAllTittleAllocationResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllTittleAllocationResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllTittleAllocationResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllTittleAllocationResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllTittleAllocationResponse.Merge(m, src)
+}
+func (m *QueryAllTittleAllocationResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllTittleAllocationResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllTittleAllocationResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllTittleAllocationResponse proto.InternalMessageInfo
+
+func (m *QueryAllTittleAllocationResponse) GetTittleAllocation() []TittleAllocation {
+	if m != nil {
+		return m.TittleAllocation
+	}
+	return nil
+}
+
+func (m *QueryAllTittleAllocationResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*QueryParamsRequest)(nil), "movie.movie.QueryParamsRequest")
 	proto.RegisterType((*QueryParamsResponse)(nil), "movie.movie.QueryParamsResponse")
@@ -492,47 +676,61 @@ func init() {
 	proto.RegisterType((*QueryGetReviewResponse)(nil), "movie.movie.QueryGetReviewResponse")
 	proto.RegisterType((*QueryAllReviewRequest)(nil), "movie.movie.QueryAllReviewRequest")
 	proto.RegisterType((*QueryAllReviewResponse)(nil), "movie.movie.QueryAllReviewResponse")
+	proto.RegisterType((*QueryGetTittleAllocationRequest)(nil), "movie.movie.QueryGetTittleAllocationRequest")
+	proto.RegisterType((*QueryGetTittleAllocationResponse)(nil), "movie.movie.QueryGetTittleAllocationResponse")
+	proto.RegisterType((*QueryAllTittleAllocationRequest)(nil), "movie.movie.QueryAllTittleAllocationRequest")
+	proto.RegisterType((*QueryAllTittleAllocationResponse)(nil), "movie.movie.QueryAllTittleAllocationResponse")
 }
 
 func init() { proto.RegisterFile("movie/movie/query.proto", fileDescriptor_6a692c7f6b793183) }
 
 var fileDescriptor_6a692c7f6b793183 = []byte{
-	// 553 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x94, 0xc1, 0x6e, 0xd3, 0x40,
-	0x10, 0x86, 0xe3, 0x34, 0x8d, 0x60, 0x2b, 0x71, 0x98, 0xa4, 0x34, 0x18, 0xe4, 0x84, 0x45, 0x6a,
-	0x11, 0x12, 0x5e, 0xa5, 0x3c, 0x41, 0x7b, 0x20, 0x48, 0x08, 0xa9, 0xf8, 0xc8, 0x01, 0xe4, 0x90,
-	0x95, 0xb1, 0xe4, 0x78, 0x9d, 0xac, 0x1b, 0xa8, 0x10, 0x17, 0x9e, 0xa0, 0x12, 0xbc, 0x0c, 0x6f,
-	0xd0, 0x63, 0x25, 0x2e, 0x9c, 0x10, 0x4a, 0x78, 0x90, 0xca, 0x3b, 0x1b, 0x39, 0x6b, 0x3b, 0x6d,
-	0x0f, 0xb9, 0x58, 0xc9, 0xee, 0x3f, 0xf3, 0xfd, 0x3b, 0xb3, 0xb3, 0x64, 0x6f, 0x2c, 0x66, 0x21,
-	0x67, 0xf8, 0x9d, 0x9c, 0xf2, 0xe9, 0x99, 0x9b, 0x4c, 0x45, 0x2a, 0x60, 0x47, 0x2d, 0xb9, 0xea,
-	0x6b, 0xb7, 0x03, 0x11, 0x08, 0xb5, 0xce, 0xb2, 0x5f, 0x28, 0xb1, 0x1f, 0x05, 0x42, 0x04, 0x11,
-	0x67, 0x7e, 0x12, 0x32, 0x3f, 0x8e, 0x45, 0xea, 0xa7, 0xa1, 0x88, 0xa5, 0xde, 0x7d, 0xf6, 0x51,
-	0xc8, 0xb1, 0x90, 0x6c, 0xe8, 0x4b, 0x9d, 0x99, 0xcd, 0xfa, 0x43, 0x9e, 0xfa, 0x7d, 0x96, 0xf8,
-	0x41, 0x18, 0x2b, 0xb1, 0xd6, 0x76, 0x56, 0x5d, 0x24, 0xfe, 0xd4, 0x1f, 0x2f, 0xb3, 0x18, 0xfe,
-	0xd0, 0x52, 0x45, 0xc8, 0x94, 0xcf, 0x42, 0xfe, 0x19, 0x77, 0x68, 0x9b, 0xc0, 0xdb, 0x0c, 0x77,
-	0xa2, 0xf2, 0x78, 0x7c, 0x72, 0xca, 0x65, 0x4a, 0x5f, 0x91, 0x96, 0xb1, 0x2a, 0x13, 0x11, 0x4b,
-	0x0e, 0x7d, 0xd2, 0x44, 0x5e, 0xc7, 0xea, 0x59, 0x4f, 0x77, 0x0e, 0x5b, 0xee, 0xca, 0xb9, 0x5d,
-	0x14, 0x1f, 0x37, 0x2e, 0xfe, 0x76, 0x6b, 0x9e, 0x16, 0xd2, 0x7d, 0xd2, 0x56, 0x99, 0x06, 0x3c,
-	0x7d, 0x93, 0xa9, 0x34, 0x01, 0xee, 0x91, 0x7a, 0x38, 0x52, 0x69, 0x1a, 0x5e, 0x3d, 0x1c, 0xd1,
-	0x01, 0xd9, 0x2d, 0xe8, 0x34, 0xd3, 0x25, 0xdb, 0x6a, 0x41, 0x23, 0xc1, 0x40, 0xaa, 0x1d, 0x4d,
-	0x44, 0x19, 0x7d, 0xaf, 0x81, 0x47, 0x51, 0x64, 0x00, 0x5f, 0x12, 0x92, 0x57, 0x52, 0x27, 0xdb,
-	0x77, 0xb1, 0xec, 0x6e, 0x56, 0x76, 0x17, 0x1b, 0xaa, 0xcb, 0xee, 0x9e, 0xf8, 0xc1, 0x32, 0xd6,
-	0x5b, 0x89, 0xa4, 0xe7, 0x96, 0x76, 0x9a, 0x03, 0xca, 0x4e, 0xb7, 0x6e, 0xe1, 0x14, 0x06, 0x86,
-	0xa3, 0xba, 0x72, 0x74, 0x70, 0xa3, 0x23, 0x84, 0x19, 0x96, 0x0e, 0xf2, 0xda, 0x79, 0xaa, 0xb7,
-	0xeb, 0x8a, 0xfc, 0x9a, 0xdc, 0x2f, 0x0a, 0xf3, 0xce, 0xe2, 0x4a, 0x65, 0x67, 0x71, 0x6b, 0xd9,
-	0x59, 0xfc, 0x47, 0x3f, 0xe4, 0x75, 0x30, 0xa9, 0x9b, 0xaa, 0xf4, 0x4f, 0x4b, 0xdb, 0x5d, 0x21,
-	0x54, 0xd8, 0xdd, 0xba, 0x95, 0xdd, 0x8d, 0x55, 0xfb, 0xf0, 0x57, 0x83, 0x6c, 0x2b, 0x5b, 0xf0,
-	0x89, 0x34, 0xf1, 0xce, 0x43, 0xd7, 0xe0, 0x97, 0x07, 0xca, 0xee, 0xad, 0x17, 0x20, 0x82, 0x3e,
-	0xfc, 0xfe, 0xfb, 0xff, 0x8f, 0xfa, 0x2e, 0xb4, 0x58, 0x79, 0xbc, 0x41, 0xe8, 0xab, 0x05, 0x8f,
-	0xcb, 0x79, 0x0a, 0x93, 0x65, 0xd3, 0xeb, 0x24, 0x1a, 0xd6, 0x55, 0xb0, 0x07, 0xb0, 0xc7, 0x4a,
-	0x2f, 0x06, 0xfb, 0x1a, 0x8e, 0xbe, 0xc1, 0x98, 0xdc, 0x51, 0x11, 0x47, 0x51, 0x54, 0xc5, 0x2c,
-	0x0c, 0x57, 0x15, 0xb3, 0x38, 0x1e, 0xd4, 0x56, 0xcc, 0x36, 0x40, 0x99, 0x09, 0x72, 0xd9, 0x4f,
-	0xa8, 0x76, 0x6f, 0x5c, 0x30, 0xfb, 0xc9, 0xb5, 0x1a, 0x8d, 0xeb, 0x29, 0x9c, 0x0d, 0x1d, 0x56,
-	0x7e, 0xfb, 0xf0, 0x8c, 0x13, 0x72, 0x17, 0x63, 0xb2, 0x43, 0x56, 0x9f, 0xe0, 0x46, 0x6e, 0xe9,
-	0x6a, 0xae, 0xe9, 0x23, 0x72, 0x8f, 0x9f, 0x5f, 0xcc, 0x1d, 0xeb, 0x72, 0xee, 0x58, 0xff, 0xe6,
-	0x8e, 0x75, 0xbe, 0x70, 0x6a, 0x97, 0x0b, 0xa7, 0xf6, 0x67, 0xe1, 0xd4, 0xde, 0xb5, 0x50, 0xf7,
-	0x45, 0xeb, 0xd3, 0xb3, 0x84, 0xcb, 0x61, 0x53, 0xbd, 0xd1, 0x2f, 0xae, 0x02, 0x00, 0x00, 0xff,
-	0xff, 0x56, 0x28, 0x61, 0x6f, 0x78, 0x06, 0x00, 0x00,
+	// 707 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x96, 0xcd, 0x6e, 0xd3, 0x40,
+	0x10, 0xc7, 0xe3, 0xb4, 0x8d, 0xe8, 0x56, 0x42, 0xd5, 0x26, 0xa5, 0xc5, 0x80, 0x13, 0xb6, 0x52,
+	0x8b, 0xa0, 0xf5, 0xaa, 0xed, 0x13, 0xa4, 0x07, 0x8a, 0x84, 0x10, 0xc5, 0xea, 0x89, 0x03, 0x95,
+	0xd3, 0xac, 0x8c, 0x25, 0x27, 0xeb, 0xc4, 0x6e, 0xa0, 0xaa, 0x7a, 0xe1, 0x09, 0x2a, 0xc1, 0x89,
+	0x33, 0x8f, 0xc1, 0x03, 0xf4, 0x58, 0x89, 0x0b, 0x27, 0x84, 0x12, 0x5e, 0x03, 0x09, 0x79, 0x77,
+	0x8c, 0xbf, 0xdd, 0x80, 0x72, 0xb1, 0xda, 0x9d, 0x8f, 0xff, 0x6f, 0x66, 0xbc, 0xe3, 0xa0, 0xd5,
+	0x1e, 0x1f, 0xd9, 0x8c, 0xca, 0xe7, 0xe0, 0x94, 0x0d, 0xcf, 0x74, 0x77, 0xc8, 0x7d, 0x8e, 0x97,
+	0xc4, 0x91, 0x2e, 0x9e, 0x6a, 0xc3, 0xe2, 0x16, 0x17, 0xe7, 0x34, 0xf8, 0x4b, 0xba, 0xa8, 0xf7,
+	0x2d, 0xce, 0x2d, 0x87, 0x51, 0xd3, 0xb5, 0xa9, 0xd9, 0xef, 0x73, 0xdf, 0xf4, 0x6d, 0xde, 0xf7,
+	0xc0, 0xfa, 0xf8, 0x84, 0x7b, 0x3d, 0xee, 0xd1, 0x8e, 0xe9, 0x41, 0x66, 0x3a, 0xda, 0xe9, 0x30,
+	0xdf, 0xdc, 0xa1, 0xae, 0x69, 0xd9, 0x7d, 0xe1, 0x0c, 0xbe, 0x6b, 0x71, 0x0a, 0xd7, 0x1c, 0x9a,
+	0xbd, 0x30, 0x4b, 0x82, 0x4f, 0x22, 0xe5, 0x84, 0x0c, 0xd9, 0xc8, 0x66, 0xef, 0xc0, 0xb2, 0x1e,
+	0xb7, 0xf8, 0xb6, 0xef, 0x3b, 0xec, 0xd8, 0x74, 0x1c, 0x7e, 0x12, 0x53, 0x24, 0x0d, 0x84, 0x5f,
+	0x05, 0x4c, 0x87, 0x42, 0xcc, 0x60, 0x83, 0x53, 0xe6, 0xf9, 0xe4, 0x19, 0xaa, 0x27, 0x4e, 0x3d,
+	0x97, 0xf7, 0x3d, 0x86, 0x77, 0x50, 0x4d, 0x42, 0xad, 0x29, 0x2d, 0xe5, 0xd1, 0xd2, 0x6e, 0x5d,
+	0x8f, 0x35, 0x47, 0x97, 0xce, 0xfb, 0xf3, 0x57, 0x3f, 0x9a, 0x15, 0x03, 0x1c, 0xc9, 0x06, 0x6a,
+	0x88, 0x4c, 0x07, 0xcc, 0x7f, 0x11, 0x78, 0x81, 0x02, 0xbe, 0x8d, 0xaa, 0x76, 0x57, 0xa4, 0x99,
+	0x37, 0xaa, 0x76, 0x97, 0x1c, 0xa0, 0x95, 0x94, 0x1f, 0x68, 0xea, 0x68, 0x41, 0x1c, 0x80, 0x24,
+	0x4e, 0x48, 0x0a, 0x0b, 0x28, 0x4a, 0x37, 0xf2, 0x06, 0x04, 0xdb, 0x8e, 0x93, 0x10, 0x7c, 0x8a,
+	0x50, 0xd4, 0x6e, 0x48, 0xb6, 0xa1, 0xcb, 0xd9, 0xe8, 0xc1, 0x6c, 0x74, 0x39, 0x75, 0x98, 0x8d,
+	0x7e, 0x68, 0x5a, 0x61, 0xac, 0x11, 0x8b, 0x24, 0x97, 0x0a, 0x90, 0x46, 0x02, 0x59, 0xd2, 0xb9,
+	0x29, 0x48, 0xf1, 0x41, 0x82, 0xa8, 0x2a, 0x88, 0x36, 0x6f, 0x24, 0x92, 0x62, 0x09, 0xa4, 0xcd,
+	0xa8, 0x77, 0x86, 0x78, 0x01, 0x8a, 0x9a, 0xfc, 0x1c, 0xdd, 0x49, 0x3b, 0x46, 0x93, 0x95, 0x27,
+	0xb9, 0x93, 0x95, 0xa6, 0x70, 0xb2, 0xf2, 0x3f, 0x72, 0x1c, 0xf5, 0x21, 0xa9, 0x3a, 0xab, 0x4e,
+	0x7f, 0x52, 0x00, 0x37, 0xa6, 0x90, 0x83, 0x3b, 0x37, 0x15, 0xee, 0xec, 0xba, 0xdd, 0x46, 0xcd,
+	0xb0, 0x89, 0x47, 0xe2, 0x52, 0xb5, 0xff, 0xde, 0xa9, 0xb0, 0x03, 0x1a, 0x42, 0x82, 0xe4, 0xc8,
+	0xf6, 0x1d, 0xf9, 0xe2, 0x2e, 0x1a, 0xb1, 0x13, 0xe2, 0xa1, 0x56, 0x71, 0x0a, 0x28, 0xf1, 0x25,
+	0x5a, 0xf6, 0x53, 0x36, 0xe8, 0xe5, 0x83, 0x44, 0xb1, 0xe9, 0x04, 0x50, 0x76, 0x26, 0x98, 0xd8,
+	0xc0, 0xdd, 0x76, 0x9c, 0x22, 0xee, 0x59, 0x4d, 0xee, 0xab, 0x02, 0x05, 0xe6, 0x6a, 0x95, 0x16,
+	0x38, 0xf7, 0xdf, 0x05, 0xce, 0x6c, 0xc2, 0xbb, 0xbf, 0x6b, 0x68, 0x41, 0xe0, 0xe3, 0xb7, 0xa8,
+	0x26, 0xb7, 0x1a, 0x6e, 0x26, 0x98, 0xb2, 0x2b, 0x53, 0x6d, 0x15, 0x3b, 0x48, 0x09, 0x72, 0xef,
+	0xc3, 0xb7, 0x5f, 0x1f, 0xab, 0x2b, 0xb8, 0x4e, 0xb3, 0x5b, 0x1e, 0x73, 0x58, 0x1e, 0xf8, 0x61,
+	0x36, 0x4f, 0x6a, 0x77, 0xaa, 0xa4, 0xcc, 0x05, 0xc4, 0x9a, 0x42, 0xec, 0x2e, 0x5e, 0xa5, 0x99,
+	0x0f, 0x07, 0x3d, 0xb7, 0xbb, 0x17, 0xb8, 0x87, 0x6e, 0x89, 0x88, 0xb6, 0xe3, 0xe4, 0x69, 0xa6,
+	0xd6, 0x67, 0x9e, 0x66, 0x7a, 0x01, 0x12, 0x55, 0x68, 0x36, 0x30, 0xce, 0x6a, 0x62, 0x2f, 0xbc,
+	0xb1, 0x38, 0x9f, 0x3e, 0xb1, 0x42, 0xd4, 0xf5, 0x52, 0x1f, 0x90, 0x6b, 0x09, 0x39, 0x15, 0xaf,
+	0xd1, 0xec, 0x27, 0x50, 0xd6, 0x38, 0x40, 0x8b, 0x32, 0x26, 0x28, 0x32, 0xbf, 0x82, 0x1b, 0x75,
+	0x33, 0xcb, 0xa7, 0x60, 0x8e, 0x52, 0x17, 0x7f, 0x51, 0xd0, 0x72, 0xfa, 0x8d, 0xc5, 0x5b, 0xb9,
+	0xe5, 0x14, 0xdc, 0x42, 0x75, 0x7b, 0x4a, 0x6f, 0xc0, 0xd9, 0x13, 0x38, 0xdb, 0xf8, 0x09, 0x2d,
+	0xfd, 0xde, 0xd3, 0xf3, 0x68, 0x01, 0x5d, 0xe0, 0xcf, 0x0a, 0xaa, 0xa7, 0x33, 0x06, 0x4d, 0xda,
+	0xca, 0x6d, 0xc0, 0x3f, 0x90, 0x96, 0xdc, 0x78, 0xb2, 0x21, 0x48, 0x5b, 0x58, 0x2b, 0x27, 0xdd,
+	0xdf, 0xbe, 0x1a, 0x6b, 0xca, 0xf5, 0x58, 0x53, 0x7e, 0x8e, 0x35, 0xe5, 0x72, 0xa2, 0x55, 0xae,
+	0x27, 0x5a, 0xe5, 0xfb, 0x44, 0xab, 0xbc, 0xae, 0xcb, 0x90, 0xf7, 0x61, 0xe8, 0x99, 0xcb, 0xbc,
+	0x4e, 0x4d, 0xfc, 0x92, 0xd9, 0xfb, 0x13, 0x00, 0x00, 0xff, 0xff, 0xa5, 0x65, 0xea, 0x05, 0xc3,
+	0x09, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -555,6 +753,9 @@ type QueryClient interface {
 	// Queries a list of Review items.
 	Review(ctx context.Context, in *QueryGetReviewRequest, opts ...grpc.CallOption) (*QueryGetReviewResponse, error)
 	ReviewAll(ctx context.Context, in *QueryAllReviewRequest, opts ...grpc.CallOption) (*QueryAllReviewResponse, error)
+	// Queries a list of TittleAllocation items.
+	TittleAllocation(ctx context.Context, in *QueryGetTittleAllocationRequest, opts ...grpc.CallOption) (*QueryGetTittleAllocationResponse, error)
+	TittleAllocationAll(ctx context.Context, in *QueryAllTittleAllocationRequest, opts ...grpc.CallOption) (*QueryAllTittleAllocationResponse, error)
 }
 
 type queryClient struct {
@@ -610,6 +811,24 @@ func (c *queryClient) ReviewAll(ctx context.Context, in *QueryAllReviewRequest, 
 	return out, nil
 }
 
+func (c *queryClient) TittleAllocation(ctx context.Context, in *QueryGetTittleAllocationRequest, opts ...grpc.CallOption) (*QueryGetTittleAllocationResponse, error) {
+	out := new(QueryGetTittleAllocationResponse)
+	err := c.cc.Invoke(ctx, "/movie.movie.Query/TittleAllocation", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) TittleAllocationAll(ctx context.Context, in *QueryAllTittleAllocationRequest, opts ...grpc.CallOption) (*QueryAllTittleAllocationResponse, error) {
+	out := new(QueryAllTittleAllocationResponse)
+	err := c.cc.Invoke(ctx, "/movie.movie.Query/TittleAllocationAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 type QueryServer interface {
 	// Parameters queries the parameters of the module.
@@ -620,6 +839,9 @@ type QueryServer interface {
 	// Queries a list of Review items.
 	Review(context.Context, *QueryGetReviewRequest) (*QueryGetReviewResponse, error)
 	ReviewAll(context.Context, *QueryAllReviewRequest) (*QueryAllReviewResponse, error)
+	// Queries a list of TittleAllocation items.
+	TittleAllocation(context.Context, *QueryGetTittleAllocationRequest) (*QueryGetTittleAllocationResponse, error)
+	TittleAllocationAll(context.Context, *QueryAllTittleAllocationRequest) (*QueryAllTittleAllocationResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -640,6 +862,12 @@ func (*UnimplementedQueryServer) Review(ctx context.Context, req *QueryGetReview
 }
 func (*UnimplementedQueryServer) ReviewAll(ctx context.Context, req *QueryAllReviewRequest) (*QueryAllReviewResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReviewAll not implemented")
+}
+func (*UnimplementedQueryServer) TittleAllocation(ctx context.Context, req *QueryGetTittleAllocationRequest) (*QueryGetTittleAllocationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TittleAllocation not implemented")
+}
+func (*UnimplementedQueryServer) TittleAllocationAll(ctx context.Context, req *QueryAllTittleAllocationRequest) (*QueryAllTittleAllocationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TittleAllocationAll not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -736,6 +964,42 @@ func _Query_ReviewAll_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_TittleAllocation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetTittleAllocationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).TittleAllocation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/movie.movie.Query/TittleAllocation",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).TittleAllocation(ctx, req.(*QueryGetTittleAllocationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_TittleAllocationAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryAllTittleAllocationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).TittleAllocationAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/movie.movie.Query/TittleAllocationAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).TittleAllocationAll(ctx, req.(*QueryAllTittleAllocationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Query_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "movie.movie.Query",
 	HandlerType: (*QueryServer)(nil),
@@ -759,6 +1023,14 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ReviewAll",
 			Handler:    _Query_ReviewAll_Handler,
+		},
+		{
+			MethodName: "TittleAllocation",
+			Handler:    _Query_TittleAllocation_Handler,
+		},
+		{
+			MethodName: "TittleAllocationAll",
+			Handler:    _Query_TittleAllocationAll_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1111,6 +1383,153 @@ func (m *QueryAllReviewResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) 
 	return len(dAtA) - i, nil
 }
 
+func (m *QueryGetTittleAllocationRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetTittleAllocationRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetTittleAllocationRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.MovieTitle) > 0 {
+		i -= len(m.MovieTitle)
+		copy(dAtA[i:], m.MovieTitle)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.MovieTitle)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetTittleAllocationResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetTittleAllocationResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetTittleAllocationResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	{
+		size, err := m.TittleAllocation.MarshalToSizedBuffer(dAtA[:i])
+		if err != nil {
+			return 0, err
+		}
+		i -= size
+		i = encodeVarintQuery(dAtA, i, uint64(size))
+	}
+	i--
+	dAtA[i] = 0xa
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllTittleAllocationRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllTittleAllocationRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllTittleAllocationRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllTittleAllocationResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllTittleAllocationResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllTittleAllocationResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.TittleAllocation) > 0 {
+		for iNdEx := len(m.TittleAllocation) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.TittleAllocation[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	offset -= sovQuery(v)
 	base := offset
@@ -1241,6 +1660,62 @@ func (m *QueryAllReviewResponse) Size() (n int) {
 	_ = l
 	if len(m.Review) > 0 {
 		for _, e := range m.Review {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetTittleAllocationRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.MovieTitle)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetTittleAllocationResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = m.TittleAllocation.Size()
+	n += 1 + l + sovQuery(uint64(l))
+	return n
+}
+
+func (m *QueryAllTittleAllocationRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryAllTittleAllocationResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.TittleAllocation) > 0 {
+		for _, e := range m.TittleAllocation {
 			l = e.Size()
 			n += 1 + l + sovQuery(uint64(l))
 		}
@@ -2047,6 +2522,377 @@ func (m *QueryAllReviewResponse) Unmarshal(dAtA []byte) error {
 			}
 			m.Review = append(m.Review, Review{})
 			if err := m.Review[len(m.Review)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetTittleAllocationRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetTittleAllocationRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetTittleAllocationRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MovieTitle", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.MovieTitle = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetTittleAllocationResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetTittleAllocationResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetTittleAllocationResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TittleAllocation", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if err := m.TittleAllocation.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllTittleAllocationRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllTittleAllocationRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllTittleAllocationRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllTittleAllocationResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllTittleAllocationResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllTittleAllocationResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TittleAllocation", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.TittleAllocation = append(m.TittleAllocation, TittleAllocation{})
+			if err := m.TittleAllocation[len(m.TittleAllocation)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex

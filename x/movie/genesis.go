@@ -22,6 +22,10 @@ func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) 
 
 	// Set review count
 	k.SetReviewCount(ctx, genState.ReviewCount)
+	// Set all the tittleAllocation
+	for _, elem := range genState.TittleAllocationList {
+		k.SetTittleAllocation(ctx, elem)
+	}
 	// this line is used by starport scaffolding # genesis/module/init
 	k.SetParams(ctx, genState.Params)
 }
@@ -35,6 +39,7 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 	genesis.MovieCount = k.GetMovieCount(ctx)
 	genesis.ReviewList = k.GetAllReview(ctx)
 	genesis.ReviewCount = k.GetReviewCount(ctx)
+	genesis.TittleAllocationList = k.GetAllTittleAllocation(ctx)
 	// this line is used by starport scaffolding # genesis/module/export
 
 	return genesis

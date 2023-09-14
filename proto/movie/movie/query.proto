@@ -8,6 +8,7 @@ import "cosmos/base/query/v1beta1/pagination.proto";
 import "movie/movie/params.proto";
 import "movie/movie/movie.proto";
 import "movie/movie/review.proto";
+import "movie/movie/tittle_allocation.proto";
 
 option go_package = "movie/x/movie/types";
 
@@ -37,6 +38,16 @@ service Query {
   }
   rpc ReviewAll (QueryAllReviewRequest) returns (QueryAllReviewResponse) {
     option (google.api.http).get = "/movie/movie/review";
+  
+  }
+  
+  // Queries a list of TittleAllocation items.
+  rpc TittleAllocation    (QueryGetTittleAllocationRequest) returns (QueryGetTittleAllocationResponse) {
+    option (google.api.http).get = "/movie/movie/tittle_allocation/{movieTitle}";
+  
+  }
+  rpc TittleAllocationAll (QueryAllTittleAllocationRequest) returns (QueryAllTittleAllocationResponse) {
+    option (google.api.http).get = "/movie/movie/tittle_allocation";
   
   }
 }
@@ -82,5 +93,22 @@ message QueryAllReviewRequest {
 message QueryAllReviewResponse {
   repeated Review                                 Review     = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetTittleAllocationRequest {
+  string movieTitle = 1;
+}
+
+message QueryGetTittleAllocationResponse {
+  TittleAllocation tittleAllocation = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllTittleAllocationRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllTittleAllocationResponse {
+  repeated TittleAllocation                       tittleAllocation = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination       = 2;
 }
 
