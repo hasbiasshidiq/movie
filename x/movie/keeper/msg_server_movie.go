@@ -4,9 +4,10 @@ import (
 	"context"
 	"fmt"
 
+	"movie/x/movie/types"
+
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"movie/x/movie/types"
 )
 
 func (k msgServer) CreateMovie(goCtx context.Context, msg *types.MsgCreateMovie) (*types.MsgCreateMovieResponse, error) {
@@ -22,10 +23,14 @@ func (k msgServer) CreateMovie(goCtx context.Context, msg *types.MsgCreateMovie)
 		IsPublished: msg.IsPublished,
 	}
 
-	id := k.AppendMovie(
-		ctx,
-		movie,
-	)
+	_, isExist := k.GetTittleAllocation(ctx, msg.Title)
+	if isExist {
+		return nil, types.ErrMovieTitleAlreadyExist
+	}
+
+	id := k.AppendMovie(ctx, movie)
+
+	k.SetTittleAllocation(ctx, types.TittleAllocation{MovieTitle: msg.Title, MovieId: id})
 
 	return &types.MsgCreateMovieResponse{
 		Id: id,
@@ -57,7 +62,13 @@ func (k msgServer) UpdateMovie(goCtx context.Context, msg *types.MsgUpdateMovie)
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 
+	allocatedMovieID, isExist := k.GetTittleAllocation(ctx, msg.Title)
+	if allocatedMovieID.MovieId != msg.Id && isExist {
+		return nil, types.ErrMovieTitleAlreadyExist
+	}
+
 	k.SetMovie(ctx, movie)
+	k.SetTittleAllocation(ctx, types.TittleAllocation{MovieTitle: msg.Title, MovieId: msg.Id})
 
 	return &types.MsgUpdateMovieResponse{}, nil
 }
