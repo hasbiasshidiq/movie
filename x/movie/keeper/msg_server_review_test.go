@@ -146,22 +146,23 @@ func TestReviewMsgServerUpdate(t *testing.T) {
 		})
 	}
 
-	t.Run("Test Movie Id doesn't exist", func(t *testing.T) {
+	t.Run("Test Can't Update MovieID", func(t *testing.T) {
 		srv, ctx := setupMsgServerReview(t)
 		creator := "A"
 
-		createdMovie, err := srv.CreateMovie(ctx, &types.MsgCreateMovie{Creator: creator})
+		createdMovie1, err := srv.CreateMovie(ctx, &types.MsgCreateMovie{Creator: creator})
 		require.NoError(t, err)
 
-		reviewCreate := &types.MsgCreateReview{Creator: creator, MovieId: createdMovie.Id}
+		createdMovie2, err := srv.CreateMovie(ctx, &types.MsgCreateMovie{Creator: creator, Title: "Mappa"})
+		require.NoError(t, err)
+
+		reviewCreate := &types.MsgCreateReview{Creator: creator, MovieId: createdMovie1.Id}
 		createdReview, err := srv.CreateReview(ctx, reviewCreate)
 		require.NoError(t, err)
 
-		movieId := createdMovie.Id + 10
-		reviewUpdate := &types.MsgUpdateReview{Creator: creator, Id: createdReview.Id, MovieId: movieId}
+		reviewUpdate := &types.MsgUpdateReview{Creator: creator, Id: createdReview.Id, MovieId: createdMovie2.Id}
 		_, err = srv.UpdateReview(ctx, reviewUpdate)
-
-		require.Equal(t, fmt.Sprintf("Can't update review since movie with id %d doesn't exist: movie doesn't exist", movieId), err.Error())
+		require.ErrorIs(t, err, types.ErrActionIsNotPermitted)
 
 	})
 }

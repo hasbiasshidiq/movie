@@ -85,6 +85,11 @@ func (k msgServer) UpdateReview(goCtx context.Context, msg *types.MsgUpdateRevie
 	}
 
 	// Checks if the msg creator is the same as the current owner
+	if val.MovieId != msg.MovieId {
+		return nil, sdkerrors.Wrap(types.ErrActionIsNotPermitted, "can't update value of MovieId from the previous review")
+	}
+
+	// Checks if the msg creator is the same as the current owner
 	if msg.Creator != val.Creator {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
