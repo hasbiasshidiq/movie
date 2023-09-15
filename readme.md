@@ -43,6 +43,52 @@ curl https://get.ignite.com/username/movie@latest! | sudo bash
 ```
 `username/movie` should match the `username` and `repo_name` of the Github repository to which the source code was pushed. Learn more about [the install process](https://github.com/allinbits/starport-installer).
 
+
+### How To Run
+
+```
+ignite chain serve
+```
+#### Add Wallet
+```
+movied keys add [wallet-name]
+```
+#### Movie
+1. Create Movie
+```
+movied tx movie create-movie [title] [plot] [year] [genre] [language] [is-published] [flags]
+```
+For more information about flags, run this following command 
+```
+movied tx movie create-movie --help
+```
+2. Update Movie
+```
+movied tx movie update-movie [id] [title] [plot] [year] [genre] [language] [is-published] [flags]
+```
+3. Delete Movie
+```
+movied tx movie delete-movie [id] [flags]
+```
+
+#### Review
+1. Create Review
+```
+movied tx movie create-review [movie-id] [star] [comment] [flags]
+```
+
+2. Update Review
+```
+movied tx movie update-review [id] [movie-id] [star] [comment] [flags]
+```
+
+3. Delete Review
+```
+movied tx movie delete-review [id] [flags]
+```
+
+
+
 ## Learn more
 
 - [Ignite CLI](https://ignite.com/cli)
@@ -50,3 +96,4 @@ curl https://get.ignite.com/username/movie@latest! | sudo bash
 - [Ignite CLI docs](https://docs.ignite.com)
 - [Cosmos SDK docs](https://docs.cosmos.network)
 - [Developer Chat](https://discord.gg/ignite)
+
