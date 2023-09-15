@@ -14,4 +14,5 @@ var (
 	ErrCannotDeleteReviewedMovie  = sdkerrors.Register(ModuleName, 1104, "can't delete reviewed movie")
 	ErrMovieDoesNotExist          = sdkerrors.Register(ModuleName, 1105, "movie doesn't exist")
 	ErrReviewAlreadyExist         = sdkerrors.Register(ModuleName, 1106, "review already exist")
+	ErrInvalidValue               = sdkerrors.Register(ModuleName, 1107, "Invalid Value")
 )

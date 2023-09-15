@@ -48,6 +48,9 @@ func (msg *MsgCreateReview) ValidateBasic() error {
 	if err != nil {
 		return sdkerrors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid creator address (%s)", err)
 	}
+	if msg.Star < 1 || msg.Star > 5 {
+		return sdkerrors.Wrapf(ErrInvalidValue, "Star should be between 1 and 5")
+	}
 	return nil
 }
 
@@ -88,6 +91,9 @@ func (msg *MsgUpdateReview) ValidateBasic() error {
 	_, err := sdk.AccAddressFromBech32(msg.Creator)
 	if err != nil {
 		return sdkerrors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid creator address (%s)", err)
+	}
+	if msg.Star < 1 || msg.Star > 5 {
+		return sdkerrors.Wrapf(ErrInvalidValue, "Star should be between 1 and 5")
 	}
 	return nil
 }

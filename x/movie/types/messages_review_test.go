@@ -3,9 +3,10 @@ package types
 import (
 	"testing"
 
+	"movie/testutil/sample"
+
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/stretchr/testify/require"
-	"movie/testutil/sample"
 )
 
 func TestMsgCreateReview_ValidateBasic(t *testing.T) {
@@ -17,14 +18,20 @@ func TestMsgCreateReview_ValidateBasic(t *testing.T) {
 		{
 			name: "invalid address",
 			msg: MsgCreateReview{
-				Creator: "invalid_address",
+				Creator: "invalid_address", Star: 2,
 			},
 			err: sdkerrors.ErrInvalidAddress,
 		}, {
 			name: "valid address",
 			msg: MsgCreateReview{
-				Creator: sample.AccAddress(),
+				Creator: sample.AccAddress(), Star: 2,
 			},
+		}, {
+			name: "Invalid Star Value",
+			msg: MsgCreateReview{
+				Creator: sample.AccAddress(), Star: 10,
+			},
+			err: ErrInvalidValue,
 		},
 	}
 	for _, tt := range tests {
@@ -48,14 +55,20 @@ func TestMsgUpdateReview_ValidateBasic(t *testing.T) {
 		{
 			name: "invalid address",
 			msg: MsgUpdateReview{
-				Creator: "invalid_address",
+				Creator: "invalid_address", Star: 3,
 			},
 			err: sdkerrors.ErrInvalidAddress,
 		}, {
 			name: "valid address",
 			msg: MsgUpdateReview{
-				Creator: sample.AccAddress(),
+				Creator: sample.AccAddress(), Star: 4,
 			},
+		}, {
+			name: "Invalid Star Value",
+			msg: MsgUpdateReview{
+				Creator: sample.AccAddress(), Star: 10,
+			},
+			err: ErrInvalidValue,
 		},
 	}
 	for _, tt := range tests {
