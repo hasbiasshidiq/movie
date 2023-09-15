@@ -10,9 +10,10 @@ const DefaultIndex uint64 = 1
 // DefaultGenesis returns the default genesis state
 func DefaultGenesis() *GenesisState {
 	return &GenesisState{
-		MovieList:            []Movie{},
-		ReviewList:           []Review{},
-		TittleAllocationList: []TittleAllocation{},
+		MovieList:             []Movie{},
+		ReviewList:            []Review{},
+		TittleAllocationList:  []TittleAllocation{},
+		ReviewsAllocationList: []ReviewsAllocation{},
 		// this line is used by starport scaffolding # genesis/types/default
 		Params: DefaultParams(),
 	}
@@ -54,6 +55,16 @@ func (gs GenesisState) Validate() error {
 			return fmt.Errorf("duplicated index for tittleAllocation")
 		}
 		tittleAllocationIndexMap[index] = struct{}{}
+	}
+	// Check for duplicated index in reviewsAllocation
+	reviewsAllocationIndexMap := make(map[string]struct{})
+
+	for _, elem := range gs.ReviewsAllocationList {
+		index := string(ReviewsAllocationKey(elem.MovieId))
+		if _, ok := reviewsAllocationIndexMap[index]; ok {
+			return fmt.Errorf("duplicated index for reviewsAllocation")
+		}
+		reviewsAllocationIndexMap[index] = struct{}{}
 	}
 	// this line is used by starport scaffolding # genesis/types/validate
 

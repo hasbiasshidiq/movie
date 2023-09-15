@@ -9,6 +9,7 @@ import "movie/movie/params.proto";
 import "movie/movie/movie.proto";
 import "movie/movie/review.proto";
 import "movie/movie/tittle_allocation.proto";
+import "movie/movie/reviews_allocation.proto";
 
 option go_package = "movie/x/movie/types";
 
@@ -48,6 +49,16 @@ service Query {
   }
   rpc TittleAllocationAll (QueryAllTittleAllocationRequest) returns (QueryAllTittleAllocationResponse) {
     option (google.api.http).get = "/movie/movie/tittle_allocation";
+  
+  }
+  
+  // Queries a list of ReviewsAllocation items.
+  rpc ReviewsAllocation    (QueryGetReviewsAllocationRequest) returns (QueryGetReviewsAllocationResponse) {
+    option (google.api.http).get = "/movie/movie/reviews_allocation/{movieId}";
+  
+  }
+  rpc ReviewsAllocationAll (QueryAllReviewsAllocationRequest) returns (QueryAllReviewsAllocationResponse) {
+    option (google.api.http).get = "/movie/movie/reviews_allocation";
   
   }
 }
@@ -110,5 +121,22 @@ message QueryAllTittleAllocationRequest {
 message QueryAllTittleAllocationResponse {
   repeated TittleAllocation                       tittleAllocation = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination       = 2;
+}
+
+message QueryGetReviewsAllocationRequest {
+  uint64 movieId = 1;
+}
+
+message QueryGetReviewsAllocationResponse {
+  ReviewsAllocation reviewsAllocation = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllReviewsAllocationRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllReviewsAllocationResponse {
+  repeated ReviewsAllocation                      reviewsAllocation = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination        = 2;
 }
 

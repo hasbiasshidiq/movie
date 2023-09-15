@@ -40,6 +40,14 @@ func TestGenesis(t *testing.T) {
 				MovieTitle: "1",
 			},
 		},
+		ReviewsAllocationList: []types.ReviewsAllocation{
+			{
+				MovieId: 0,
+			},
+			{
+				MovieId: 1,
+			},
+		},
 		// this line is used by starport scaffolding # genesis/test/state
 	}
 
@@ -56,5 +64,6 @@ func TestGenesis(t *testing.T) {
 	require.ElementsMatch(t, genesisState.ReviewList, got.ReviewList)
 	require.Equal(t, genesisState.ReviewCount, got.ReviewCount)
 	require.ElementsMatch(t, genesisState.TittleAllocationList, got.TittleAllocationList)
+	require.ElementsMatch(t, genesisState.ReviewsAllocationList, got.ReviewsAllocationList)
 	// this line is used by starport scaffolding # genesis/test/assert
 }

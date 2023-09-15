@@ -1,0 +1,11 @@
+syntax = "proto3";
+package movie.movie;
+
+option go_package = "movie/x/movie/types";
+
+message ReviewsAllocation {
+  uint64 movieId = 1; 
+  repeated uint64 reviewIds = 2; 
+  
+}
+
