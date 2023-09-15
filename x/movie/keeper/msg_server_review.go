@@ -4,9 +4,10 @@ import (
 	"context"
 	"fmt"
 
+	"movie/x/movie/types"
+
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"movie/x/movie/types"
 )
 
 func (k msgServer) CreateReview(goCtx context.Context, msg *types.MsgCreateReview) (*types.MsgCreateReviewResponse, error) {
@@ -23,6 +24,14 @@ func (k msgServer) CreateReview(goCtx context.Context, msg *types.MsgCreateRevie
 		ctx,
 		review,
 	)
+
+	reviewsAllocation, _ := k.GetReviewsAllocation(ctx, msg.MovieId)
+	reviewIds := reviewsAllocation.ReviewIds
+
+	reviewIds = append(reviewIds, id)
+	reviewsAllocation = types.ReviewsAllocation{MovieId: msg.MovieId, ReviewIds: reviewIds}
+
+	k.SetReviewsAllocation(ctx, reviewsAllocation)
 
 	return &types.MsgCreateReviewResponse{
 		Id: id,

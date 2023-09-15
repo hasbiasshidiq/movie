@@ -87,6 +87,15 @@ func (k msgServer) DeleteMovie(goCtx context.Context, msg *types.MsgDeleteMovie)
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 
+	if val.IsPublished {
+		return nil, types.ErrCannotDeletePublishedMovie
+	}
+
+	reviews, isReviewExistOnMovie := k.GetReviewsAllocation(ctx, val.Id)
+	if isReviewExistOnMovie && len(reviews.ReviewIds) > 0 {
+		return nil, types.ErrCannotDeleteReviewedMovie
+	}
+
 	k.RemoveMovie(ctx, msg.Id)
 
 	return &types.MsgDeleteMovieResponse{}, nil
