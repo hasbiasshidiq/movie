@@ -25,19 +25,25 @@ func (k msgServer) CreateReview(goCtx context.Context, msg *types.MsgCreateRevie
 		return nil, sdkerrors.Wrap(types.ErrMovieDoesNotExist, fmt.Sprintf("Can't create review since movie with id %d doesn't exist", msg.MovieId))
 	}
 
+	reviewsAllocation, isFound := k.GetReviewsAllocationByCreator(ctx, msg.MovieId, msg.Creator)
+	if isFound && len(reviewsAllocation.ReviewIds) > 0 {
+		return nil, sdkerrors.Wrap(types.ErrReviewAlreadyExist, fmt.Sprintf("You have already reviewed movie with Id %d", msg.MovieId))
+	}
+
 	id := k.AppendReview(
 		ctx,
 		review,
 	)
 
-	k.UpdateMovieToReviewsMap(ctx, msg.MovieId, id)
+	k.SetMovieToReviewsMap(ctx, msg.MovieId, id)
+	k.SetMovieToReviewsMapByCreator(ctx, msg.MovieId, msg.Creator, id)
 
 	return &types.MsgCreateReviewResponse{
 		Id: id,
 	}, nil
 }
 
-func (k msgServer) UpdateMovieToReviewsMap(ctx sdk.Context, movieId uint64, newReviewId uint64) {
+func (k msgServer) SetMovieToReviewsMap(ctx sdk.Context, movieId uint64, newReviewId uint64) {
 
 	reviewsAllocation, _ := k.GetReviewsAllocation(ctx, movieId)
 	reviewIds := reviewsAllocation.ReviewIds
@@ -46,6 +52,19 @@ func (k msgServer) UpdateMovieToReviewsMap(ctx sdk.Context, movieId uint64, newR
 	reviewsAllocation = types.ReviewsAllocation{MovieId: movieId, ReviewIds: reviewIds}
 
 	k.SetReviewsAllocation(ctx, reviewsAllocation)
+
+}
+
+func (k msgServer) SetMovieToReviewsMapByCreator(ctx sdk.Context, movieId uint64, creator string, newReviewId uint64) {
+
+	reviewsAllocation, _ := k.GetReviewsAllocationByCreator(ctx, movieId, creator)
+	reviewIds := reviewsAllocation.ReviewIds
+
+	reviewIds = append(reviewIds, newReviewId)
+	reviewsAllocation = types.ReviewsAllocation{MovieId: movieId, ReviewIds: reviewIds}
+
+	k.SetReviewsAllocationByCreator(ctx, reviewsAllocation, creator)
+
 }
 
 func (k msgServer) UpdateReview(goCtx context.Context, msg *types.MsgUpdateReview) (*types.MsgUpdateReviewResponse, error) {

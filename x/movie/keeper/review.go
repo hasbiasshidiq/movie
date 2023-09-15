@@ -3,9 +3,10 @@ package keeper
 import (
 	"encoding/binary"
 
+	"movie/x/movie/types"
+
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"movie/x/movie/types"
 )
 
 // GetReviewCount get the total number of review

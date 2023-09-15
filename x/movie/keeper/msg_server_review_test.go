@@ -25,20 +25,19 @@ func TestReviewMsgServerCreate(t *testing.T) {
 
 	t.Run("Test Increment Id", func(t *testing.T) {
 		srv, ctx := setupMsgServerReview(t)
-		creator := "A"
 
-		createdMovie, err := srv.CreateMovie(ctx, &types.MsgCreateMovie{Creator: creator})
+		createdMovie, err := srv.CreateMovie(ctx, &types.MsgCreateMovie{Creator: "A"})
 		require.NoError(t, err)
 
-		resp, err := srv.CreateReview(ctx, &types.MsgCreateReview{Creator: creator, MovieId: createdMovie.Id})
+		resp, err := srv.CreateReview(ctx, &types.MsgCreateReview{Creator: "reviewer 1", MovieId: createdMovie.Id})
 		require.NoError(t, err)
 		require.Equal(t, 0, int(resp.Id))
 
-		resp, err = srv.CreateReview(ctx, &types.MsgCreateReview{Creator: creator, MovieId: createdMovie.Id})
+		resp, err = srv.CreateReview(ctx, &types.MsgCreateReview{Creator: "reviewer 2", MovieId: createdMovie.Id})
 		require.NoError(t, err)
 		require.Equal(t, 1, int(resp.Id))
 
-		resp, err = srv.CreateReview(ctx, &types.MsgCreateReview{Creator: creator, MovieId: createdMovie.Id})
+		resp, err = srv.CreateReview(ctx, &types.MsgCreateReview{Creator: "reviewer 3", MovieId: createdMovie.Id})
 		require.NoError(t, err)
 		require.Equal(t, 2, int(resp.Id))
 
@@ -53,6 +52,53 @@ func TestReviewMsgServerCreate(t *testing.T) {
 		movieId := createdMovie.Id + 10
 		_, err = srv.CreateReview(ctx, &types.MsgCreateReview{Creator: creator, MovieId: movieId})
 		require.Equal(t, fmt.Sprintf("Can't create review since movie with id %d doesn't exist: movie doesn't exist", movieId), err.Error())
+
+	})
+
+	t.Run("Test Can't Create Multiple Review on particular movie", func(t *testing.T) {
+		srv, ctx := setupMsgServerReview(t)
+		creator := "A"
+
+		createdMovie, err := srv.CreateMovie(ctx, &types.MsgCreateMovie{Creator: creator})
+		require.NoError(t, err)
+
+		_, err = srv.CreateReview(ctx, &types.MsgCreateReview{Creator: creator, MovieId: createdMovie.Id})
+		require.NoError(t, err)
+
+		_, err = srv.CreateReview(ctx, &types.MsgCreateReview{Creator: creator, MovieId: createdMovie.Id})
+		require.Equal(t, fmt.Sprintf("You have already reviewed movie with Id %d: review already exist", createdMovie.Id), err.Error())
+
+	})
+
+	t.Run("Test Can Create Multiple Review on particular movie (By Different Review Creator)", func(t *testing.T) {
+		srv, ctx := setupMsgServerReview(t)
+
+		createdMovie, err := srv.CreateMovie(ctx, &types.MsgCreateMovie{Creator: "A"})
+		require.NoError(t, err)
+
+		_, err = srv.CreateReview(ctx, &types.MsgCreateReview{Creator: "A", MovieId: createdMovie.Id})
+		require.NoError(t, err)
+
+		_, err = srv.CreateReview(ctx, &types.MsgCreateReview{Creator: "B", MovieId: createdMovie.Id})
+		require.NoError(t, err)
+
+	})
+
+	t.Run("Test Can Create Multiple Review on different movie", func(t *testing.T) {
+		srv, ctx := setupMsgServerReview(t)
+		creator := "A"
+
+		createdMovie1, err := srv.CreateMovie(ctx, &types.MsgCreateMovie{Creator: creator, Title: "Kimi No Na Wa"})
+		require.NoError(t, err)
+
+		_, err = srv.CreateReview(ctx, &types.MsgCreateReview{Creator: creator, MovieId: createdMovie1.Id})
+		require.NoError(t, err)
+
+		createdMovie2, err := srv.CreateMovie(ctx, &types.MsgCreateMovie{Creator: creator, Title: "Gintama"})
+		require.NoError(t, err)
+
+		_, err = srv.CreateReview(ctx, &types.MsgCreateReview{Creator: creator, MovieId: createdMovie2.Id})
+		require.NoError(t, err)
 
 	})
 }
