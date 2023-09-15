@@ -20,22 +20,32 @@ func (k msgServer) CreateReview(goCtx context.Context, msg *types.MsgCreateRevie
 		Comment: msg.Comment,
 	}
 
+	_, isFound := k.GetMovie(ctx, msg.MovieId)
+	if !isFound {
+		return nil, sdkerrors.Wrap(types.ErrMovieDoesNotExist, fmt.Sprintf("Can't create review since movie with id %d doesn't exist", msg.MovieId))
+	}
+
 	id := k.AppendReview(
 		ctx,
 		review,
 	)
 
-	reviewsAllocation, _ := k.GetReviewsAllocation(ctx, msg.MovieId)
-	reviewIds := reviewsAllocation.ReviewIds
-
-	reviewIds = append(reviewIds, id)
-	reviewsAllocation = types.ReviewsAllocation{MovieId: msg.MovieId, ReviewIds: reviewIds}
-
-	k.SetReviewsAllocation(ctx, reviewsAllocation)
+	k.UpdateMovieToReviewsMap(ctx, msg.MovieId, id)
 
 	return &types.MsgCreateReviewResponse{
 		Id: id,
 	}, nil
+}
+
+func (k msgServer) UpdateMovieToReviewsMap(ctx sdk.Context, movieId uint64, newReviewId uint64) {
+
+	reviewsAllocation, _ := k.GetReviewsAllocation(ctx, movieId)
+	reviewIds := reviewsAllocation.ReviewIds
+
+	reviewIds = append(reviewIds, newReviewId)
+	reviewsAllocation = types.ReviewsAllocation{MovieId: movieId, ReviewIds: reviewIds}
+
+	k.SetReviewsAllocation(ctx, reviewsAllocation)
 }
 
 func (k msgServer) UpdateReview(goCtx context.Context, msg *types.MsgUpdateReview) (*types.MsgUpdateReviewResponse, error) {
@@ -58,6 +68,12 @@ func (k msgServer) UpdateReview(goCtx context.Context, msg *types.MsgUpdateRevie
 	// Checks if the msg creator is the same as the current owner
 	if msg.Creator != val.Creator {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
+	}
+
+	// Checks if movie exist
+	_, isFound := k.GetMovie(ctx, msg.MovieId)
+	if !isFound {
+		return nil, sdkerrors.Wrap(types.ErrMovieDoesNotExist, fmt.Sprintf("Can't update review since movie with id %d doesn't exist", msg.MovieId))
 	}
 
 	k.SetReview(ctx, review)

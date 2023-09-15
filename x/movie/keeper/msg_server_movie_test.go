@@ -111,7 +111,7 @@ func TestMovieMsgServerDelete(t *testing.T) {
 func TestMovieMsgServerCreateDuplicateTitle(t *testing.T) {
 	creator := "A"
 
-	t.Run("Teset Duplicate Title", func(t *testing.T) {
+	t.Run("Test Duplicate Title", func(t *testing.T) {
 		srv, ctx := setupMsgServerMovie(t)
 
 		_, err := srv.CreateMovie(ctx, &types.MsgCreateMovie{Creator: creator, Title: "Kimi No Na wa"})

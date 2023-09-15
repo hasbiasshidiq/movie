@@ -12,4 +12,5 @@ var (
 	ErrMovieTitleAlreadyExist     = sdkerrors.Register(ModuleName, 1101, "movie with this title is already exist")
 	ErrCannotDeletePublishedMovie = sdkerrors.Register(ModuleName, 1103, "can't delete published movie")
 	ErrCannotDeleteReviewedMovie  = sdkerrors.Register(ModuleName, 1104, "can't delete reviewed movie")
+	ErrMovieDoesNotExist          = sdkerrors.Register(ModuleName, 1105, "movie doesn't exist")
 )
